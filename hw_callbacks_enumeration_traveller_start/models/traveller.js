@@ -21,7 +21,9 @@ Traveller.prototype.getModesOfTransport = function () {
 };
 
 Traveller.prototype.getJourneysByTransport = function (transport) {
-
+  const foundJourneysOfTransportType = this.journeys.filter(journey =>
+  journey.transport === transport);
+  return foundJourneysOfTransportType;
 };
 
 Traveller.prototype.getJourneysByMinDistance = function (minDistance) {
