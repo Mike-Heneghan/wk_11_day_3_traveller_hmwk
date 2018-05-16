@@ -9,11 +9,15 @@ Traveller.prototype.getJourneyStartLocations = function() {
 };
 
 Traveller.prototype.getJourneyEndLocations = function () {
-
+  const foundEndLocations = this.journeys.map((journey) => {
+    return journey.endLocation});
+  return foundEndLocations;
 };
 
 Traveller.prototype.getModesOfTransport = function () {
-
+  const foundModesOfTransport = this.journeys.map((journey) =>{
+    return journey.transport});
+  return foundModesOfTransport;
 };
 
 Traveller.prototype.getJourneysByTransport = function (transport) {
