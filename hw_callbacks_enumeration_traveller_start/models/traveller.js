@@ -33,11 +33,23 @@ Traveller.prototype.getJourneysByMinDistance = function (minDistance) {
 };
 
 Traveller.prototype.calculateTotalDistanceTravelled = function () {
-
+  const travelledDistances = this.journeys.map((journey) => {
+    return journey.distance;
+  });
+  const totalDistance = travelledDistances.reduce((accumulator, currentValue) => {
+    return accumulator + currentValue;
+  })
+  return totalDistance;
 };
 
 Traveller.prototype.getUniqueModesOfTransport = function () {
-
+  const modesOfTransport = this.getModesOfTransport();
+  let uniqueModesOfTransport = [];
+  modesOfTransport.forEach((mode) => {
+    if(true != uniqueModesOfTransport.includes(mode)){
+      uniqueModesOfTransport.push(mode)}
+  });
+  return uniqueModesOfTransport;
 };
 
 
