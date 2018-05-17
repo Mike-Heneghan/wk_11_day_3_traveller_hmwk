@@ -42,15 +42,22 @@ Traveller.prototype.calculateTotalDistanceTravelled = function () {
   return totalDistance;
 };
 
-Traveller.prototype.getUniqueModesOfTransport = function () {
-  const modesOfTransport = this.getModesOfTransport();
-  let uniqueModesOfTransport = [];
-  modesOfTransport.forEach((mode) => {
-    if(true != uniqueModesOfTransport.includes(mode)){
-      uniqueModesOfTransport.push(mode)}
-  });
-  return uniqueModesOfTransport;
-};
+// Traveller.prototype.getUniqueModesOfTransport = function () {
+//   const modesOfTransport = this.getModesOfTransport();
+//   let uniqueModesOfTransport = [];
+//   modesOfTransport.forEach((mode) => {
+//     if(!uniqueModesOfTransport.includes(mode)){
+//       uniqueModesOfTransport.push(mode)}
+//   });
+//   return uniqueModesOfTransport;
+// };
 
+Traveller.prototype.getUniqueModesOfTransport = function (){
+  journeysObj = {};
+  this.journeys.forEach((journey) => {
+    journeysObj[journey.transport] = 'logged';
+  });
+  return uniqueModes = Object.keys(journeysObj);
+};
 
 module.exports = Traveller;
